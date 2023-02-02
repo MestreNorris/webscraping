@@ -1,5 +1,5 @@
 import VerticalNavLink from './verticalNavLink'
-import VerticalNavSectionTitle from './VerticalNavSectionTitle'
+import VerticalNavSectionTitle from './verticalNavSectionTitle'
 
 const resolveNavItemComponent = item => {
   if (item.sectionTitle) return VerticalNavSectionTitle
