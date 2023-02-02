@@ -11,7 +11,7 @@ import {
   InputLegend
 } from './styles'
 import { LogoMenu, LogoSearch } from '../icons'
-import ModeToggler from '../theme/ModeToggler'
+import ModeToggler from '../theme/modeToggler'
 import UserDropdown from '../userDropdown'
 
 const AppBarContent = props => {

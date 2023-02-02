@@ -1,4 +1,4 @@
-import { useState, Fragment, useEffect, useRef } from 'react'
+import { useState, Fragment, useEffect } from 'react'
 import Link from 'next/link'
 import { IconConfig, IconInfo, IconAPI, ButtonDropdownOptions } from '../icons'
 import { Box, MenuDropdown, MenuDropdownItem, MenuDropdownList } from './styles'

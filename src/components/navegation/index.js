@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import Drawer from '../../default/Drawer'
-import VerticalNavItems from '../VerticalNavItems'
-import VerticalNavHeader from '../VerticalNavHeader'
+import VerticalNavItems from '../verticalNavItems'
+import VerticalNavHeader from '../verticalNavHeader'
 import { Box, BoxContainer, List } from './styles'
 
 const Navigation = props => {
