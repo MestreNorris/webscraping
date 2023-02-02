@@ -1,0 +1,42 @@
+{
+  "name": "webscraping_app",
+  "description": "Coleta de dados de sites",
+  "license": "MIT",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alan Pereira"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "/"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx}\""
+  },
+  "dependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "@mui/material": "5.11.1",
+    "mdi-material-ui": "7.6.0",
+    "next": "^13.1.5",
+    "nprogress": "0.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-perfect-scrollbar": "1.5.8",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "eslint": "8.30.0",
+    "eslint-config-next": "^13.1.5",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-import-resolver-typescript": "3.5.2",
+    "eslint-plugin-import": "^2.24.1",
+    "next-transpile-modules": "10.0.0",
+    "prettier": "2.8.1"
+  }
+}
