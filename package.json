@@ -36,7 +36,6 @@
     "eslint-import-resolver-alias": "1.1.2",
     "eslint-import-resolver-typescript": "3.5.2",
     "eslint-plugin-import": "^2.24.1",
-    "next-transpile-modules": "10.0.0",
     "prettier": "2.8.1"
   }
 }
