@@ -53,7 +53,8 @@ export async function executeOperation(collectionName, operation, data) {
     }
 
     result = await execute[operation]()
-    client.close()
+
+    // client.close()
 
     return result
   } catch (_) {
