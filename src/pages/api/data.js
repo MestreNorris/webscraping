@@ -1,8 +1,11 @@
-import data from './jsonAnimes.json'
+import { connectToDatabase } from '../../components/connection/mongodb'
 
-const handler = (req, res) => {
+const handler = async (req, res) => {
   try {
     const { method } = req
+
+    const db = await connectToDatabase()
+    const data = db.collection('animes')
 
     switch (method) {
       case 'GET':
