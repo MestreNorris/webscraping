@@ -8,7 +8,7 @@ import GlobalStyle from '../components/styles/globals'
 import themeConfig from '../components/theme/themeConfig'
 
 // ** Theme
-import themeOptions from '../components/theme/ThemeOptions'
+import themeOptions from '../components/theme/themeOptions'
 
 const ThemeComponent = props => {
   // ** Props

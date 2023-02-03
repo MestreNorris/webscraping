@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
-import Drawer from '../../default/Drawer'
+import Drawer from '../../default/drawer'
 import VerticalNavItems from '../verticalNavItems'
 import VerticalNavHeader from '../verticalNavHeader'
 import { Box, BoxContainer, List } from './styles'
