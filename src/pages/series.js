@@ -9,7 +9,6 @@ export default Series
 export async function getStaticProps() {
   const res = await fetch('https://webscraping.vercel.app/api/series')
   const seriesData = await res.json()
-  console.log(res)
 
   if (!res.ok) throw new Error('Erro ao realizar a requisição')
 
