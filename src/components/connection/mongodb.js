@@ -17,6 +17,7 @@ export async function connectToDatabase() {
 
 export async function executeOperation(collectionName, operation, data) {
   try {
+    console.log('Executando Operação')
     const { db, client } = await connectToDatabase()
     const collection = db.collection(collectionName)
     let result = null
@@ -33,6 +34,8 @@ export async function executeOperation(collectionName, operation, data) {
 
       return { operation: 'Método do banco de dados não suportado' }
     }
+
+    console.log('Carregando Operação')
 
     const execute = {
       async insertMany() {
@@ -53,6 +56,7 @@ export async function executeOperation(collectionName, operation, data) {
     }
 
     result = await execute[operation]()
+    console.log('Operação executada')
 
     // client.close()
 
