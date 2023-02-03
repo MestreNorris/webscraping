@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { MenuNavLink, MenuItemTextMetaWrapper, ListItem, ListItemIcon, Typography } from './styles'
-import UserIcon from '../UserIcon'
+import UserIcon from '../userIcon'
 import { handleURLQueries } from '../routerLinks/handleURL'
 
 const VerticalNavLink = ({ item, navVisible, toggleNavVisibility, theme, themeConfig }) => {
