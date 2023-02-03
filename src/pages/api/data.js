@@ -1,15 +1,14 @@
-import { connectToDatabase } from '../../components/connection/mongodb'
+import { executeOperation } from '../../components/connection/mongodb'
 
 const handler = async (req, res) => {
   try {
     const { method } = req
 
-    const db = await connectToDatabase()
-    const data = db.collection('animes')
+    const data = await executeOperation('animes', 'findAll')
 
     switch (method) {
       case 'GET':
-        res.status(200).json(data)
+        res.status(200).json({ data })
         break
       default:
         res.setHeader('Allow', ['GET', 'POST'])
