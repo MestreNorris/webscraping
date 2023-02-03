@@ -3,15 +3,13 @@ import { executeOperation } from '../../components/connection/mongodb'
 const handler = async (req, res) => {
   try {
     const { method } = req
-
     var t0 = performance.now()
 
-    //await executeOperation('animes', 'insertMany', [{ nome: 'Clarice Pereira', idade: 65 }])
-
-    const data = await executeOperation('animes', 'findAll')
-
+    const data = await executeOperation('mangas', 'findAll')
     var t1 = performance.now()
-    console.log('Tempo executado ' + ((t1 - t0) / 1000).toFixed(2) + ' segundos.')
+    console.log('Operação completada em ' + ((t1 - t0) / 1000).toFixed(2) + ' segundos.')
+
+    console.log(data)
 
     switch (method) {
       case 'GET':
@@ -21,8 +19,8 @@ const handler = async (req, res) => {
         res.setHeader('Allow', ['GET', 'POST'])
         res.status(405).end(`Método ${method} não suportado`)
     }
-  } catch (err) {
-    res.status(500).json({ statusCode: 500, message: err.message })
+  } catch (_) {
+    res.status(500).json({ statusCode: 500, message: 'Erro ao executar a operação no servidor' })
   }
 }
 

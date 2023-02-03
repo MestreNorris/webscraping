@@ -10,36 +10,26 @@ export async function connectToDatabase() {
   const client = new MongoClient(URI, {})
 
   try {
-    await client.connect().then(console.log('Conectado ao servidor com sucesso'))
+    await client.connect().then(console.log('\nConectado ao servidor com sucesso'))
     const db = client.db()
 
     return { db, client }
   } catch (error) {
-    console.log('Erro ao conectar ao servidor')
+    console.log('Erro ao conectar ao servidor \n')
   }
 }
 
 export async function executeOperation(collectionName, operation, data) {
   try {
-    console.log('Executando Operação')
-    const { db, client } = await connectToDatabase()
-    const collection = db.collection(collectionName)
-    let result = null
-
     const namesSuported = ['animes', 'series, filmes', 'mangas']
     const operationSuported = ['insertMany', 'deleteMany', 'deleteOne', 'findAll', 'updateOne']
 
-    if (!namesSuported.includes(collectionName)) {
-      client.close()
+    !namesSuported.includes(collectionName) && (console.log('\nNome da coleção não encontrada'), client.close())
+    !operationSuported.includes(operation) && (console.log('\nOperação não suportada'), client.close())
 
-      return { collection: 'Nome da coleção não encontrada' }
-    } else if (!operationSuported.includes(operation)) {
-      client.close()
-
-      return { operation: 'Método do banco de dados não suportado' }
-    }
-
-    console.log('Carregando Operação')
+    const { db, client } = await connectToDatabase()
+    const collection = db.collection(collectionName)
+    let result = null
 
     const execute = {
       async insertMany() {
@@ -60,9 +50,7 @@ export async function executeOperation(collectionName, operation, data) {
     }
 
     result = await execute[operation]()
-    console.log('Operação Executada')
-
-    // client.close()
+    client.close()
 
     return result
   } catch (_) {
