@@ -4,7 +4,12 @@ const handler = async (req, res) => {
   try {
     const { method } = req
 
+    var t0 = performance.now()
+
     const data = await executeOperation('animes', 'findAll')
+
+    var t1 = performance.now()
+    console.log('Tempo executado ' + ((t1 - t0) / 1000).toFixed(2) + ' segundos.')
 
     switch (method) {
       case 'GET':
