@@ -1,9 +1,13 @@
 import { executeOperation } from '../../components/connection/mongodb'
+import jsonAnimes from './jsonAnimes.json'
 
 const handler = async (req, res) => {
   try {
     const { method } = req
     var t0 = performance.now()
+
+    //await executeOperation('mangas', 'deleteMany')
+    //await executeOperation('mangas', 'insertMany', jsonAnimes)
 
     const data = await executeOperation('mangas', 'findAll')
     var t1 = performance.now()
