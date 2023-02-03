@@ -6,10 +6,9 @@ const handler = async (req, res) => {
     var t0 = performance.now()
 
     const data = await executeOperation('filmes', 'findAll')
+
     var t1 = performance.now()
     console.log('Operação completada em ' + ((t1 - t0) / 1000).toFixed(2) + ' segundos.')
-
-    console.log(data)
 
     switch (method) {
       case 'GET':

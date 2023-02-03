@@ -4,16 +4,17 @@ const Series = ({ data }) => {
   return <Card data={data} />
 }
 
+export default Series
+
 export async function getStaticProps() {
   const res = await fetch('https://webscraping.vercel.app/api/series')
   const seriesData = await res.json()
+  console.log(res)
 
-  if (!res.ok) throw new Error(`Erro ao realizar a requisição, erro status ${res.status}`)
+  if (!res.ok) throw new Error('Erro ao realizar a requisição')
 
   return {
     props: { data: seriesData.data },
     revalidate: 60
   }
 }
-
-export default Series
