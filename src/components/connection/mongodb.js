@@ -21,7 +21,7 @@ export async function connectToDatabase() {
 
 export async function executeOperation(collectionName, operation, data) {
   try {
-    const namesSuported = ['animes', 'series, filmes', 'mangas']
+    const namesSuported = ['animes', 'series', 'filmes', 'mangas']
     const operationSuported = ['insertMany', 'deleteMany', 'deleteOne', 'findAll', 'updateOne']
 
     !namesSuported.includes(collectionName) && (console.log('\nNome da coleção não encontrada'), client.close())

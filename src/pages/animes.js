@@ -7,7 +7,7 @@ const Animes = ({ data }) => {
 export default Animes
 
 export async function getStaticProps() {
-  const res = await fetch('https://webscraping.vercel.app/api/animes')
+  const res = await fetch('https://webscraping.vercel.app/api/data')
   const animesData = await res.json()
 
   if (!res.ok) throw new Error(`Erro ao realizar a requisição, erro status ${res.status}`)
