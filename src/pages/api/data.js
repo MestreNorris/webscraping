@@ -6,6 +6,8 @@ const handler = async (req, res) => {
 
     var t0 = performance.now()
 
+    //await executeOperation('animes', 'insertMany', [{ nome: 'Clarice Pereira', idade: 65 }])
+
     const data = await executeOperation('animes', 'findAll')
 
     var t1 = performance.now()

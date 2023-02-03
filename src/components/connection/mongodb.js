@@ -60,7 +60,7 @@ export async function executeOperation(collectionName, operation, data) {
     }
 
     result = await execute[operation]()
-    console.log('Operação executada')
+    console.log('Operação Executada')
 
     // client.close()
 
