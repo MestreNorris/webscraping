@@ -1,10 +1,14 @@
 import { MongoClient } from 'mongodb'
 
-const URI = process.env.MONGO_URI
-
-const client = new MongoClient(URI, { useNewUrlParser: true, useUnifiedTopology: true })
-
 export async function connectToDatabase() {
+  const URI = process.env.MONGODB_URI
+
+  if (!process.env.MONGODB_URI) {
+    throw new Error('Por favor adicione a variável Mongo URI')
+  }
+
+  const client = new MongoClient(URI, {})
+
   try {
     await client.connect().then(console.log('Conectado ao servidor com sucesso'))
     const db = client.db()
