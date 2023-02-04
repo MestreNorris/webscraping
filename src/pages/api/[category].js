@@ -1,5 +1,4 @@
 import { executeOperation } from '../../components/connection/mongodb'
-import { Error404 } from '../404'
 
 const handler = async (req, res) => {
   try {
@@ -11,7 +10,7 @@ const handler = async (req, res) => {
       case 'GET':
         suportedAPIs.includes(query.category)
           ? res.status(200).json(await executeOperation(query.category, 'findAll'))
-          : res.render(Error404)
+          : res.redirect(301, '/404')
 
         var t1 = performance.now()
         console.log('Operação completada em ' + ((t1 - t0) / 1000).toFixed(2) + ' segundos.')

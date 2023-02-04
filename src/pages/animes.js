@@ -13,7 +13,7 @@ export async function getStaticProps() {
   if (!res.ok) throw new Error('Erro ao realizar a requisição')
 
   return {
-    props: { data: animesData.data },
+    props: { data: animesData },
     revalidate: 60
   }
 }
