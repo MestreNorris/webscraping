@@ -50,8 +50,9 @@ const Cover = ({ src, type }) => {
         src={srcImg} //src={isValidUrl(srcImg, type)}
         fill
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-        onError={() => setSrcImg(typeCategory(type))}
         alt='Capa'
+
+        // onError={() => setSrcImg(typeCategory(type))}
       />
     </Figure>
   )
