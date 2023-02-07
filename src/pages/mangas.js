@@ -6,6 +6,7 @@ const Mangas = ({ data }) => {
   const [offset, setOffset] = useState(0)
   const limit = 20
   const manga = data.slice(offset, offset + limit)
+  console.log(manga)
 
   return <Card data={manga} length={data.length} type={'mangas'} limit={limit} offset={offset} setOffset={setOffset} />
 }
