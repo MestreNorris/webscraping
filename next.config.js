@@ -10,8 +10,7 @@ module.exports = {
       'themoviedb.org',
       'static3.leitor.net',
       'leitor.net',
-      'donghuanosekai.com',
-      'vitals.vercel-insights.com'
+      'donghuanosekai.com'
     ]
   },
   experimental: {
