@@ -28,7 +28,7 @@ const App = props => {
         <meta name='viewport' content='initial-scale=1, width=device-width' />
         <meta
           http-equiv='Content-Security-Policy'
-          content="default-src 'self'; img-src https://*; child-src 'none'; unsafe-inline;"
+          content="default-src 'https://vitals.vercel-insights.com/v1/vitals'; img-src https://*; child-src 'none'; unsafe-inline;"
         />
       </Head>
 
