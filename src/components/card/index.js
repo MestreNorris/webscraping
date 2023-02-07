@@ -2,7 +2,6 @@ import {
   Grid,
   Cardboard,
   Figure,
-  Image,
   CardDescription,
   CardName,
   Title,
@@ -11,11 +10,49 @@ import {
   ImageLogo,
   SpanLogo
 } from './styles'
+import { useState } from 'react'
+import Image from 'next/image'
+import imgMangas from '../../../public/images/errorCard/mangas.jpg'
+import imgFilmes from '../../../public/images/errorCard/filmes.jpg'
+import imgAnimes from '../../../public/images/errorCard/animes.jpg'
+import imgSeries from '../../../public/images/errorCard/series.jpg'
+import Pagination from '../data/pagination'
 
-const Cover = ({ src }) => {
+const Cover = ({ src, type }) => {
+  const [srcImg, setSrcImg] = useState(src)
+
+  const typeCategory = type => {
+    switch (type) {
+      case 'mangas':
+        return imgMangas
+      case 'animes':
+        return imgAnimes
+      case 'filmes':
+        return imgFilmes
+      case 'series':
+        return imgSeries
+    }
+  }
+
+  const isValidUrl = (urlString, type) => {
+    try {
+      if (new URL(urlString)) {
+        return urlString
+      }
+    } catch (_) {
+      return typeCategory(type)
+    }
+  }
+
   return (
     <Figure>
-      <Image src={src} alt='Capa' />
+      <Image
+        src={isValidUrl(srcImg, type)}
+        fill
+        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+        onError={() => setSrcImg(typeCategory(type))}
+        alt='Capa'
+      />
     </Figure>
   )
 }
@@ -60,16 +97,19 @@ const Description = ({ title, url }) => {
   )
 }
 
-const Card = ({ data }) => {
+const Card = ({ data, length, type, limit, offset, setOffset }) => {
   return (
-    <Grid>
-      {data.map(item => (
-        <Cardboard key={item.id}>
-          <Cover src={item.cover} alt={'Capa'}></Cover>
-          <Description title={item.title} url={item.link} />
-        </Cardboard>
-      ))}
-    </Grid>
+    <>
+      <Grid>
+        {data.map(item => (
+          <Cardboard key={item.id}>
+            <Cover src={item.cover} type={type} alt={'Capa'}></Cover>
+            <Description title={item.title} url={item.link} />
+          </Cardboard>
+        ))}
+      </Grid>
+      <Pagination limit={limit} totalItens={length} offset={offset} setOffset={setOffset} />
+    </>
   )
 }
 

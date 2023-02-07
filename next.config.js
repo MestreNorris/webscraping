@@ -2,7 +2,20 @@ module.exports = {
   trailingSlash: true,
   reactStrictMode: false,
   images: {
-    domains: ['tmdb.org', 'themoviedb.org']
+    domains: [
+      'cdn.flying-lines.com',
+      'stc.animestc.com',
+      'image.tmdb.org',
+      'tmdb.org',
+      'themoviedb.org',
+      'static3.leitor.net',
+      'leitor.net',
+      'donghuanosekai.com',
+      'vitals.vercel-insights.com'
+    ]
+  },
+  experimental: {
+    largePageDataBytes: 128 * 100000
   },
   compiler: {
     styledComponents: true

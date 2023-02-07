@@ -1,19 +1,19 @@
 import Card from '../components/card/index.js'
+import { FetchData } from '../components/data/fetchData'
+import { useState } from 'react'
 
 const Animes = ({ data }) => {
-  return <Card data={data} />
+  const [offset, setOffset] = useState(0)
+  const limit = 20
+  const animes = data.slice(offset, offset + limit)
+
+  return <Card data={animes} length={data.length} type={'animes'} limit={limit} offset={offset} setOffset={setOffset} />
+}
+
+export async function getStaticProps() {
+  const animesData = await FetchData('https://webscraping.vercel.app/api/animes')
+
+  return { props: { data: animesData }, revalidate: 60 }
 }
 
 export default Animes
-
-export async function getStaticProps() {
-  const res = await fetch('https://webscraping.vercel.app/api/animes')
-  const animesData = await res.json()
-
-  if (!res.ok) throw new Error('Erro ao realizar a requisição')
-
-  return {
-    props: { data: animesData },
-    revalidate: 60
-  }
-}

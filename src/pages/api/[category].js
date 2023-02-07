@@ -2,18 +2,17 @@ import { executeOperation } from '../../components/connection/mongodb'
 
 const handler = async (req, res) => {
   try {
-    var t0 = performance.now()
     const { method, query } = req
     const suportedAPIs = ['animes', 'series', 'filmes', 'mangas']
+    let data = null
+
+    if (suportedAPIs.includes(query.category)) {
+      data = await executeOperation(query.category, 'findAll')
+    }
 
     switch (method) {
       case 'GET':
-        suportedAPIs.includes(query.category)
-          ? res.status(200).json(await executeOperation(query.category, 'findAll'))
-          : res.redirect(301, '/404')
-
-        var t1 = performance.now()
-        console.log('Operação completada em ' + ((t1 - t0) / 1000).toFixed(2) + ' segundos.')
+        data ? res.status(200).json(data) : res.redirect(301, '/404')
         break
       default:
         res.setHeader('Allow', ['GET', 'POST'])

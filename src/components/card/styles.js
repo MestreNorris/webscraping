@@ -7,18 +7,19 @@ export const Grid = styled.div`
 `
 
 export const Figure = styled.figure`
+  position: relative;
   margin-bottom: 8px;
   box-shadow: 0 0 10px #ccc;
   border-radius: 10px 10px 0px 0px;
-`
-
-export const Image = styled.img`
-  width: 100%;
-  max-width: 100%;
-  height: 260px;
-  box-shadow: rgb(0 0 0 / 30%) 0px 1px 3px 0px;
-  border: 7px solid rgb(255, 255, 255);
-  border-radius: 10px 10px 0px 0px;
+  & img {
+    width: 100%;
+    max-width: 100%;
+    height: 260px !important;
+    box-shadow: rgb(0 0 0 / 30%) 0px 1px 3px 0px;
+    border: 7px solid rgb(255, 255, 255);
+    border-radius: 10px 10px 0px 0px;
+    position: relative !important;
+  }
 `
 
 export const CardDescription = styled.div`
