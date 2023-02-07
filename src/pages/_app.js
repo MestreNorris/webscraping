@@ -7,7 +7,6 @@ import UserLayout from '../components/userLayout'
 import ThemeComponent from '../default/themeComponent'
 import { SettingsConsumer, SettingsProvider } from '../components/theme/settingsContext.js'
 import 'react-perfect-scrollbar/dist/css/styles.css'
-import { Analytics } from '@vercel/analytics/react'
 
 if (themeConfig.routingLoader) {
   Router.events.on('routeChangeStart', () => NProgress.start())
@@ -26,10 +25,6 @@ const App = props => {
         <meta name='description' content={`${themeConfig.templateName} – Coleta de dados de sites.`} />
         <meta name='keywords' content='Webscraping, Animes, Séries, Mangás, Filmes.' />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
-        <meta
-          http-equiv='Content-Security-Policy'
-          content="default-src 'https://vitals.vercel-insights.com/v1/vitals'; img-src https://*; child-src 'none'; unsafe-inline;"
-        />
       </Head>
 
       <SettingsProvider>
@@ -53,7 +48,6 @@ const App = props => {
           }}
         </SettingsConsumer>
       </SettingsProvider>
-      <Analytics />
     </>
   )
 }
