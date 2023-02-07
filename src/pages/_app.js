@@ -28,7 +28,7 @@ const App = props => {
         <meta name='viewport' content='initial-scale=1, width=device-width' />
         <meta
           http-equiv='Content-Security-Policy'
-          content="default-src 'self'; style-src 'self'; img-src https://*; child-src 'none';"
+          content="default-src 'self'; img-src https://*; child-src 'none'; style-src 'self';"
         />
       </Head>
 
