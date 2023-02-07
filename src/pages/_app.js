@@ -7,7 +7,7 @@ import UserLayout from '../components/userLayout'
 import ThemeComponent from '../default/themeComponent'
 import { SettingsConsumer, SettingsProvider } from '../components/theme/settingsContext.js'
 import 'react-perfect-scrollbar/dist/css/styles.css'
-import { Analytics } from '@vercel/analytics'
+import { Analytics } from '@vercel/analytics/react'
 
 if (themeConfig.routingLoader) {
   Router.events.on('routeChangeStart', () => NProgress.start())
