@@ -44,15 +44,12 @@ const Cover = ({ src, type }) => {
     }
   }
 
-  const myLoader = ({ src }) => {
-    return `${src}&q=${75}`
-  }
-
   return (
     <Figure>
       <Image
-        src={myLoader(srcImg)} //src={isValidUrl(srcImg, type)}
-        fill
+        src={isValidUrl(srcImg, type)}
+        width={200}
+        height={200}
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         onError={() => setSrcImg(typeCategory(type))}
         alt='Capa'
