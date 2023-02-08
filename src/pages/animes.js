@@ -13,7 +13,7 @@ const Animes = ({ data }) => {
 export async function getStaticProps() {
   const animesData = await FetchData('https://webscraping.vercel.app/api/animes')
 
-  return { props: { data: animesData }, revalidate: 60 }
+  return { props: { data: animesData }, revalidate: 10 }
 }
 
 export default Animes

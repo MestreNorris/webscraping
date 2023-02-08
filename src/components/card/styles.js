@@ -6,6 +6,11 @@ export const Grid = styled.div`
   justify-content: space-evenly;
 `
 
+export const NotFound = styled(Grid)`
+ align-content: center;
+ height: 100%;
+`
+
 export const Figure = styled.figure`
   position: relative;
   margin-bottom: 8px;

@@ -12,8 +12,9 @@ const Mangas = ({ data }) => {
 
 export async function getStaticProps() {
   const mangasData = await FetchData('https://webscraping.vercel.app/api/mangas')
+  console.log('mangasData', mangasData)
 
-  return { props: { data: mangasData }, revalidate: 60 }
+  return { props: { data: mangasData }, revalidate: 10 }
 }
 
 export default Mangas

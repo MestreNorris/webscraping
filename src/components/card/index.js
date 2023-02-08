@@ -1,5 +1,6 @@
 import {
   Grid,
+  NotFound,
   Cardboard,
   Figure,
   CardDescription,
@@ -100,7 +101,7 @@ const Description = ({ title, url }) => {
 }
 
 const Card = ({ data, length, type, limit, offset, setOffset }) => {
-  return (
+  return length !== 0 ? (
     <>
       <Grid>
         {data.map(item => (
@@ -112,6 +113,8 @@ const Card = ({ data, length, type, limit, offset, setOffset }) => {
       </Grid>
       <Pagination limit={limit} totalItens={length} offset={offset} setOffset={setOffset} />
     </>
+  ) : (
+    <NotFound>Nenhum registro encontrado</NotFound>
   )
 }
 

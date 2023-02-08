@@ -13,7 +13,7 @@ const Series = ({ data }) => {
 export async function getStaticProps() {
   const seriesData = await FetchData('https://webscraping.vercel.app/api/series')
 
-  return { props: { data: seriesData }, revalidate: 60 }
+  return { props: { data: seriesData }, revalidate: 10 }
 }
 
 export default Series

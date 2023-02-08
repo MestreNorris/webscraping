@@ -32,7 +32,7 @@ const Filmes = ({ data }) => {
 export async function getStaticProps() {
   const filmesData = await FetchData('https://webscraping.vercel.app/api/filmes')
 
-  return { props: { data: filmesData }, revalidate: 60 }
+  return { props: { data: filmesData }, revalidate: 10 }
 }
 
 export default Filmes
