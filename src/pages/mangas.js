@@ -1,5 +1,5 @@
 import Card from '../components/card/index.js'
-import { FetchData } from '../components/data/fetchData'
+import { fetchData } from '../components/data/fetchData'
 import { useState } from 'react'
 
 const Mangas = ({ data }) => {
@@ -11,8 +11,7 @@ const Mangas = ({ data }) => {
 }
 
 export async function getStaticProps() {
-  const mangasData = await FetchData('https://webscraping.vercel.app/api/mangas')
-  console.log('mangasData', mangasData)
+  const mangasData = await fetchData('https://webscraping.vercel.app/api/mangas')
 
   return { props: { data: mangasData }, revalidate: 60 }
 }
