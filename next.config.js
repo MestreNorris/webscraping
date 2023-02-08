@@ -8,6 +8,7 @@ module.exports = {
       'image.tmdb.org',
       'tmdb.org',
       'themoviedb.org',
+      'www.themoviedb.org',
       'static3.leitor.net',
       'leitor.net',
       'donghuanosekai.com'
