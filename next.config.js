@@ -11,7 +11,8 @@ module.exports = {
       'www.themoviedb.org',
       'static3.leitor.net',
       'leitor.net',
-      'donghuanosekai.com'
+      'donghuanosekai.com',
+      'i1.wp.com'
     ]
   },
   experimental: {
