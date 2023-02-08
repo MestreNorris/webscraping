@@ -20,7 +20,7 @@ const browserHeaders = {
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
 }
 
-export const fetchData = async url => {
+export const FetchData = async url => {
   const result = await fetch(url, { headers: browserHeaders })
     .then(response => {
       if (!response.ok) {

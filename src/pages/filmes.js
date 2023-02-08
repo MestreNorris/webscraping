@@ -1,6 +1,6 @@
 import Card from '../components/card/index.js'
-import { fetchData } from '../components/data/fetchData'
-import { useState, useEffect } from 'react'
+import { FetchData } from '../components/data/fetchData'
+import { useState } from 'react'
 
 class TypeFilmes {
   constructor(id, title, link, site, cover, date, status) {
@@ -21,24 +21,18 @@ class TypeFilmes {
   }
 }
 
-const Filmes = () => {
+const Filmes = ({ data }) => {
   const [offset, setOffset] = useState(0)
-  const [filmes, setFilmes] = useState([])
   const limit = 20
+  const filmes = data.slice(offset, offset + limit)
 
-  useEffect(() => {
-    fetchData('https://webscraping.vercel.app/api/filmes').then(result => {
-      console.log(result)
-      if (result) {
-        const data = result.slice(offset, offset + limit)
-        setFilmes(data)
-      }
-    })
-  }, [offset])
+  return <Card data={filmes} length={data.length} type={'filmes'} limit={limit} offset={offset} setOffset={setOffset} />
+}
 
-  return (
-    <Card data={filmes} length={filmes.length} type={'filmes'} limit={limit} offset={offset} setOffset={setOffset} />
-  )
+export async function getStaticProps() {
+  const filmesData = await FetchData('https://webscraping.vercel.app/api/filmes')
+
+  return { props: { data: filmesData }, revalidate: 60 }
 }
 
 export default Filmes
