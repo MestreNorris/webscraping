@@ -101,7 +101,7 @@ const Description = ({ title, url }) => {
   )
 }
 
-const Card = ({ data, length, type, limit, offset, setOffset }) => {
+const Card = ({ data, length, type, limit, offset, setOffset, status }) => {
   return length !== 0 ? (
     <>
       <Grid>
@@ -115,7 +115,7 @@ const Card = ({ data, length, type, limit, offset, setOffset }) => {
       <Pagination limit={limit} totalItens={length} offset={offset} setOffset={setOffset} />
     </>
   ) : (
-    <NotFound>Nenhum registro encontrado</NotFound>
+    <NotFound>{status}</NotFound>
   )
 }
 

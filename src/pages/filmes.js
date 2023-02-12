@@ -1,6 +1,6 @@
 import Card from '../components/card/index.js'
 import { FetchData } from '../components/data/fetchData'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 class TypeFilmes {
   constructor(id, title, link, site, cover, date, status) {
@@ -21,18 +21,35 @@ class TypeFilmes {
   }
 }
 
-const Filmes = ({ data }) => {
+const Filmes = () => {
+  const [filmes, setFilmes] = useState([])
   const [offset, setOffset] = useState(0)
-  const limit = 20
-  const filmes = data.slice(offset, offset + limit)
+  const [limit, setLimit] = useState(20)
+  const [length, setLength] = useState(0)
+  const [status, setStatus] = useState('Carregando registros ...')
 
-  return <Card data={filmes} length={data.length} type={'filmes'} limit={limit} offset={offset} setOffset={setOffset} />
-}
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await FetchData('/api/filmes')
+      response.length === 0 && setStatus('Nenhum registro encontrado')
+      setLength(response.length)
+      setFilmes(response.slice(offset, offset + limit))
+    }
 
-export async function getStaticProps() {
-  const filmesData = await FetchData('https://webscraping.vercel.app/api/filmes')
+    fetchData()
+  }, [offset, limit])
 
-  return { props: { data: filmesData }, revalidate: 60 }
+  return (
+    <Card
+      status={status}
+      data={filmes}
+      length={length}
+      type={'filmes'}
+      limit={limit}
+      offset={offset}
+      setOffset={setOffset}
+    />
+  )
 }
 
 export default Filmes

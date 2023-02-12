@@ -1,5 +1,12 @@
 import { executeOperation } from '../../components/connection/mongodb'
 import jsonData from '../../../public/json/jsonData.json'
+import jsonSeries from '../../../public/json/series.json'
+
+export const config = {
+  api: {
+    responseLimit: '8mb'
+  }
+}
 
 const handler = async (req, res) => {
   try {
@@ -7,7 +14,7 @@ const handler = async (req, res) => {
     const suportedAPIs = ['animes', 'series', 'filmes', 'mangas']
     let data = null
 
-    //await executeOperation(query.category, 'insertMany', jsonData)
+    //await executeOperation(query.category, 'insertMany', jsonSeries.series)
     //await executeOperation(query.category, 'deleteMany')
 
     if (suportedAPIs.includes(query.category)) {

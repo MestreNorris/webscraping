@@ -12,12 +12,14 @@ module.exports = {
       'static3.leitor.net',
       'leitor.net',
       'donghuanosekai.com',
-      'i1.wp.com'
+      'i1.wp.com',
+      'www.themoviedb.orgundefined'
     ]
   },
-  experimental: {
-    largePageDataBytes: 128 * 100000
-  },
+
+  // experimental: {
+  //   largePageDataBytes: 128 * 100000
+  // },
   compiler: {
     styledComponents: true
   }

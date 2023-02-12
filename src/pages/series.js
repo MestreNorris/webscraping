@@ -1,19 +1,36 @@
 import Card from '../components/card/index.js'
 import { FetchData } from '../components/data/fetchData'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-const Series = ({ data }) => {
+const Series = () => {
+  const [series, setSeries] = useState([])
   const [offset, setOffset] = useState(0)
-  const limit = 20
-  const series = data.slice(offset, offset + limit)
+  const [limit, setLimit] = useState(20)
+  const [length, setLength] = useState(0)
+  const [status, setStatus] = useState('Carregando registros ...')
 
-  return <Card data={series} length={data.length} type={'series'} limit={limit} offset={offset} setOffset={setOffset} />
-}
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await FetchData('/api/series')
+      response.length === 0 && setStatus('Nenhum registro encontrado')
+      setLength(response.length)
+      setSeries(response.slice(offset, offset + limit))
+    }
 
-export async function getStaticProps() {
-  const seriesData = await FetchData('https://webscraping.vercel.app/api/series')
+    fetchData()
+  }, [offset, limit])
 
-  return { props: { data: seriesData }, revalidate: 60 }
+  return (
+    <Card
+      status={status}
+      data={series}
+      length={length}
+      type={'series'}
+      limit={limit}
+      offset={offset}
+      setOffset={setOffset}
+    />
+  )
 }
 
 export default Series
